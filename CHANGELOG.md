@@ -5,7 +5,7 @@ follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions
 follow [Semantic Versioning](https://semver.org/). This file is generated at
 each release from the Conventional Commits: do not edit it by hand.
 
-## [0.1.0] - unreleased
+## [0.1.0] - 2026-10-16
 
 ### Added
 
@@ -16,3 +16,5 @@ each release from the Conventional Commits: do not edit it by hand.
 - A dashboard widget per car: picture, battery, range, lock, openings, charge, climate, position, warnings and quick buttons.
 - One kept session (stored in /data), a pause after a refused sign-in, and a Diagnostic button writing the anonymized answers of BYD to the logs.
 - English, French, German and Spanish.
+
+[0.1.0]: https://github.com/William-De71/gladys-byd/releases/tag/v0.1.0

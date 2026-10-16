@@ -1,0 +1,28 @@
+{
+  "envelopes": [
+    ["{\"a\":1}", "F6f+i333iYBnkmDc4ciUySQ=="],
+    [
+      "{\"countryCode\":\"FR\",\"identifier\":\"user@example.com\",\"reqTimestamp\":\"1760000000000\",\"data\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\"}",
+      "FaRsr4XZ+lRY61Cgabp5n1T5Di5g2FzOL3dtR3NSHFHoX/9XUdp29rT7nC2MEPeT5D6SlHMbOnqZ53Q8gN7zFo6kGUh+FmzXQCCpBwfHmHotj40mN45oEQLR2me6jFGk0n3G+L6DwpMXbzAordMK/HgjdFhrW441YVgRdF6AB+olFQQt/3eNWPb8lLpVSZS53XOc32eH/vcGovCURUgZPjANtp2D6DxYxkFzJCapeTvc="
+    ],
+    ["", "FlpybH7xiohrkjagBOJY5Mg=="]
+  ],
+  "sign": [
+    {
+      "vin": "LGXCE6CB0P0000001",
+      "random": "ABCDEF",
+      "timeStamp": "1760000000000",
+      "countryCode": "FR",
+      "x": null
+    },
+    "KEY",
+    "1E87D6c5CE632F7477fa85dfAC9eAD1bEFe05176"
+  ],
+  "checkcode": [
+    { "countryCode": "FR", "encryData": "AB", "identifier": "\u00e9", "reqTimestamp": "1" },
+    "ad8fde2a6b19a4753bc532e59fd99d2f"
+  ],
+  "md5": "5EBE2294ECD0E0F08EAB7690D2A6EE69",
+  "loginKey": "DA7E206F72183441EE0F910074EE480F",
+  "aes": ["{\"vin\":\"X\"}", "DA7E206F72183441EE0F910074EE480F", "50618AE1641E3D86F0F57E2F9B6896E4"]
+}

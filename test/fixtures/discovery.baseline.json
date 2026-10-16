@@ -1,0 +1,368 @@
+{
+  "device": {
+    "external_id": "ext:byd:vehicle:LGXCE6CB0P0000001",
+    "should_poll": false,
+    "params": ["BYD_VIN", "BYD_MODEL", "BYD_ENERGY_TYPE"],
+    "features": [
+      {
+        "external_id": "ext:byd:vehicle:LGXCE6CB0P0000001:battery_level",
+        "category": "electrical-vehicle-battery",
+        "type": "battery-level",
+        "unit": "percent",
+        "min": 0,
+        "max": 100,
+        "read_only": true,
+        "has_feedback": false
+      },
+      {
+        "external_id": "ext:byd:vehicle:LGXCE6CB0P0000001:battery_range",
+        "category": "electrical-vehicle-battery",
+        "type": "battery-range-estimate",
+        "unit": "km",
+        "min": 0,
+        "max": 1500,
+        "read_only": true,
+        "has_feedback": false
+      },
+      {
+        "external_id": "ext:byd:vehicle:LGXCE6CB0P0000001:fuel_level",
+        "category": "level-sensor",
+        "type": "liquid-level-percent",
+        "unit": "percent",
+        "min": 0,
+        "max": 100,
+        "read_only": true,
+        "has_feedback": false
+      },
+      {
+        "external_id": "ext:byd:vehicle:LGXCE6CB0P0000001:fuel_range",
+        "category": "distance-sensor",
+        "type": "decimal",
+        "unit": "km",
+        "min": 0,
+        "max": 3000,
+        "read_only": true,
+        "has_feedback": false
+      },
+      {
+        "external_id": "ext:byd:vehicle:LGXCE6CB0P0000001:odometer",
+        "category": "electrical-vehicle-state",
+        "type": "odometer",
+        "unit": "km",
+        "min": 0,
+        "max": 2000000,
+        "read_only": true,
+        "has_feedback": false
+      },
+      {
+        "external_id": "ext:byd:vehicle:LGXCE6CB0P0000001:plugged",
+        "category": "electrical-vehicle-charge",
+        "type": "plugged",
+        "min": 0,
+        "max": 1,
+        "read_only": true,
+        "has_feedback": false
+      },
+      {
+        "external_id": "ext:byd:vehicle:LGXCE6CB0P0000001:charging_status",
+        "category": "text",
+        "type": "text",
+        "min": 0,
+        "max": 0,
+        "read_only": true,
+        "has_feedback": false
+      },
+      {
+        "external_id": "ext:byd:vehicle:LGXCE6CB0P0000001:charge_time",
+        "category": "duration",
+        "type": "integer",
+        "unit": "minutes",
+        "min": 0,
+        "max": 6000,
+        "read_only": true,
+        "has_feedback": false
+      },
+      {
+        "external_id": "ext:byd:vehicle:LGXCE6CB0P0000001:indoor_temperature",
+        "category": "electrical-vehicle-climate",
+        "type": "indoor-temperature",
+        "unit": "celsius",
+        "min": -40,
+        "max": 80,
+        "read_only": true,
+        "has_feedback": false
+      },
+      {
+        "external_id": "ext:byd:vehicle:LGXCE6CB0P0000001:lock",
+        "category": "electrical-vehicle-command",
+        "type": "lock",
+        "min": 0,
+        "max": 1,
+        "read_only": false,
+        "has_feedback": true
+      },
+      {
+        "external_id": "ext:byd:vehicle:LGXCE6CB0P0000001:doors",
+        "category": "electrical-vehicle-state",
+        "type": "door-opened",
+        "min": 0,
+        "max": 1,
+        "read_only": true,
+        "has_feedback": false
+      },
+      {
+        "external_id": "ext:byd:vehicle:LGXCE6CB0P0000001:windows",
+        "category": "electrical-vehicle-state",
+        "type": "window-opened",
+        "min": 0,
+        "max": 1,
+        "read_only": true,
+        "has_feedback": false
+      },
+      {
+        "external_id": "ext:byd:vehicle:LGXCE6CB0P0000001:climate",
+        "category": "electrical-vehicle-climate",
+        "type": "climate-on",
+        "min": 0,
+        "max": 1,
+        "read_only": false,
+        "has_feedback": false
+      },
+      {
+        "external_id": "ext:byd:vehicle:LGXCE6CB0P0000001:tyre_front_left",
+        "category": "electrical-vehicle-state",
+        "type": "tire-pressure",
+        "unit": "bar",
+        "min": 0,
+        "max": 6,
+        "read_only": true,
+        "has_feedback": false
+      },
+      {
+        "external_id": "ext:byd:vehicle:LGXCE6CB0P0000001:tyre_front_right",
+        "category": "electrical-vehicle-state",
+        "type": "tire-pressure",
+        "unit": "bar",
+        "min": 0,
+        "max": 6,
+        "read_only": true,
+        "has_feedback": false
+      },
+      {
+        "external_id": "ext:byd:vehicle:LGXCE6CB0P0000001:tyre_rear_left",
+        "category": "electrical-vehicle-state",
+        "type": "tire-pressure",
+        "unit": "bar",
+        "min": 0,
+        "max": 6,
+        "read_only": true,
+        "has_feedback": false
+      },
+      {
+        "external_id": "ext:byd:vehicle:LGXCE6CB0P0000001:tyre_rear_right",
+        "category": "electrical-vehicle-state",
+        "type": "tire-pressure",
+        "unit": "bar",
+        "min": 0,
+        "max": 6,
+        "read_only": true,
+        "has_feedback": false
+      },
+      {
+        "external_id": "ext:byd:vehicle:LGXCE6CB0P0000001:warnings",
+        "category": "text",
+        "type": "text",
+        "min": 0,
+        "max": 0,
+        "read_only": true,
+        "has_feedback": false
+      },
+      {
+        "external_id": "ext:byd:vehicle:LGXCE6CB0P0000001:distance_home",
+        "category": "distance-sensor",
+        "type": "decimal",
+        "unit": "km",
+        "min": 0,
+        "max": 20000,
+        "read_only": true,
+        "has_feedback": false
+      }
+    ]
+  },
+  "config": [
+    "account_intro",
+    "username",
+    "password",
+    "country",
+    "commands_intro",
+    "control_pin",
+    "options_intro",
+    "poll_interval",
+    "climate_temperature",
+    "climate_duration",
+    "home_radius",
+    "language"
+  ],
+  "actions": ["test_connection", "refresh", "diagnostic"],
+  "scene_triggers": [
+    {
+      "key": "lock_changed",
+      "fields": [
+        {
+          "key": "vehicle",
+          "options": []
+        },
+        {
+          "key": "state",
+          "options": ["locked", "unlocked"]
+        }
+      ],
+      "variables": ["vehicle_name", "summary"]
+    },
+    {
+      "key": "left_open",
+      "fields": [
+        {
+          "key": "vehicle",
+          "options": []
+        }
+      ],
+      "variables": ["vehicle_name", "openings", "summary"]
+    },
+    {
+      "key": "charging_changed",
+      "fields": [
+        {
+          "key": "vehicle",
+          "options": []
+        },
+        {
+          "key": "state",
+          "options": ["started", "stopped"]
+        }
+      ],
+      "variables": ["vehicle_name", "battery_level", "range_km", "summary"]
+    },
+    {
+      "key": "charger_connection_changed",
+      "fields": [
+        {
+          "key": "vehicle",
+          "options": []
+        },
+        {
+          "key": "state",
+          "options": ["connected", "disconnected"]
+        }
+      ],
+      "variables": ["vehicle_name", "battery_level", "summary"]
+    },
+    {
+      "key": "home_changed",
+      "fields": [
+        {
+          "key": "vehicle",
+          "options": []
+        },
+        {
+          "key": "state",
+          "options": ["arrived", "left"]
+        }
+      ],
+      "variables": ["vehicle_name", "distance_km", "battery_level", "summary"]
+    },
+    {
+      "key": "warning_raised",
+      "fields": [
+        {
+          "key": "vehicle",
+          "options": []
+        },
+        {
+          "key": "warning",
+          "options": [
+            "tyre_pressure",
+            "tyre_leak",
+            "power_system",
+            "braking",
+            "charging_system",
+            "steering",
+            "abs",
+            "esp",
+            "eps",
+            "airbag",
+            "service",
+            "coolant"
+          ]
+        }
+      ],
+      "variables": ["vehicle_name", "warning_label", "summary"]
+    },
+    {
+      "key": "account_problem",
+      "fields": [
+        {
+          "key": "problem",
+          "options": ["login_refused", "pin_refused"]
+        }
+      ],
+      "variables": ["summary"]
+    }
+  ],
+  "scene_actions": [
+    {
+      "key": "send_command",
+      "fields": [
+        {
+          "key": "vehicle",
+          "options": []
+        },
+        {
+          "key": "command",
+          "options": ["lock", "unlock", "climate_start", "climate_stop", "flash_lights", "find_car"]
+        }
+      ],
+      "outputs": ["success", "summary"]
+    },
+    {
+      "key": "get_status",
+      "fields": [
+        {
+          "key": "vehicle",
+          "options": []
+        },
+        {
+          "key": "refresh",
+          "options": []
+        }
+      ],
+      "outputs": [
+        "vehicle_name",
+        "locked",
+        "all_closed",
+        "openings",
+        "battery_level",
+        "range_km",
+        "charging",
+        "plugged",
+        "minutes_to_full",
+        "climate_on",
+        "inside_temperature",
+        "odometer_km",
+        "at_home",
+        "distance_home_km",
+        "latitude",
+        "longitude",
+        "map_url",
+        "warnings",
+        "summary"
+      ]
+    }
+  ],
+  "widgets": [
+    {
+      "key": "vehicle",
+      "settings": ["vehicle", "show_buttons"]
+    }
+  ]
+}

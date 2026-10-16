@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="534" viewBox="0 0 800 534">
+  <!-- Cover of the BYD integration for Gladys Assistant (illustration, not
+       the BYD logo). Built into cover.jpg by scripts/build-cover.sh. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0e1a2b"/>
+      <stop offset="1" stop-color="#1b3150"/>
+    </linearGradient>
+    <linearGradient id="car" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e9eef5"/>
+      <stop offset="1" stop-color="#b9c4d3"/>
+    </linearGradient>
+    <linearGradient id="charge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2ecc71"/>
+      <stop offset="1" stop-color="#7ee2a8"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="534" fill="url(#bg)"/>
+  <g stroke="#22395a" stroke-width="1">
+    <path d="M0 89 H800 M0 178 H800 M0 267 H800 M0 356 H800 M0 445 H800"/>
+    <path d="M100 0 V534 M200 0 V534 M300 0 V534 M400 0 V534 M500 0 V534 M600 0 V534 M700 0 V534"/>
+  </g>
+
+  <text x="400" y="104" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif"
+        font-size="76" font-weight="bold" letter-spacing="14" fill="#ffffff">BYD</text>
+  <text x="400" y="150" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif"
+        font-size="26" fill="#9fb6d4">for Gladys Assistant</text>
+
+  <!-- the car -->
+  <ellipse cx="400" cy="408" rx="262" ry="16" fill="#0a1320" opacity="0.7"/>
+  <path d="M150 382 Q154 334 214 322 L292 268 Q322 248 368 246 L470 246 Q518 248 552 274 L610 322 Q652 330 650 382 Z" fill="url(#car)"/>
+  <path d="M306 280 Q326 262 368 261 L420 261 L420 316 L262 316 Z" fill="#26476f"/>
+  <path d="M436 261 L470 261 Q506 263 532 284 L566 316 L436 316 Z" fill="#26476f"/>
+  <rect x="148" y="366" width="504" height="14" rx="7" fill="#7f8ea3"/>
+  <circle cx="250" cy="390" r="44" fill="#141c28"/><circle cx="250" cy="390" r="20" fill="#8b98aa"/>
+  <circle cx="552" cy="390" r="44" fill="#141c28"/><circle cx="552" cy="390" r="20" fill="#8b98aa"/>
+  <rect x="612" y="334" width="32" height="10" rx="4" fill="#ffd166"/>
+  <rect x="154" y="336" width="24" height="9" rx="4" fill="#ef476f"/>
+
+  <!-- battery and charge -->
+  <g transform="translate(316 452)">
+    <rect width="160" height="48" rx="10" fill="none" stroke="#9fb6d4" stroke-width="5"/>
+    <rect x="160" y="15" width="10" height="18" rx="3" fill="#9fb6d4"/>
+    <rect x="9" y="9" width="104" height="30" rx="5" fill="url(#charge)"/>
+    <path d="M128 6 L114 26 H126 L118 42 L140 18 H128 Z" fill="#ffd166"/>
+  </g>
+  <!-- cloud -->
+  <g transform="translate(640 196)" fill="#4a7fbf">
+    <circle cx="0" cy="0" r="26"/><circle cx="30" cy="-10" r="32"/><circle cx="62" cy="4" r="22"/>
+    <rect x="-8" y="0" width="76" height="26" rx="12"/>
+  </g>
+  <path d="M676 236 Q640 270 600 284" fill="none" stroke="#4a7fbf" stroke-width="4" stroke-dasharray="8 8"/>
+</svg>

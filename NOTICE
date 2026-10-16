@@ -1,0 +1,49 @@
+Gladys BYD integration
+Copyright 2026 William Deren
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+The BYD cloud client (src/byd/) is a JavaScript rewrite after the pyBYD Python
+library, Copyright (c) 2026 Joel Kåberg, licensed under the MIT License
+(https://github.com/jkaberg/pyBYD), which also credits TA2k/ioBroker.byd (MIT)
+and Niek/BYD-re. The protocol details (endpoints, payload fields, signature,
+answer codes, meaning of the fields) come from it; no source file of it is
+included.
+
+src/data/bangcle_tables.bin is the white-box AES table file shipped by pyBYD
+(pybyd/data/bangcle_tables.bin, extracted from the libencrypt.so library of
+the BYD app). It is redistributed unchanged under the MIT License of pyBYD,
+reproduced below.
+
+The country -> BYD server table (src/byd/regions.js) comes from the Home
+Assistant integration hass-byd-vehicle, Copyright (c) 2026 jkaberg, MIT
+License (https://github.com/jkaberg/hass-byd-vehicle).
+
+BYD is a trademark of BYD Company Limited. This community integration is not
+affiliated with, endorsed or sponsored by BYD Company Limited; it uses an
+undocumented API of the BYD app that may change at any time.
+
+-------------------------------------------------------------------------------
+pyBYD license:
+
+MIT License
+
+Copyright (c) 2026 Joel Kåberg
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

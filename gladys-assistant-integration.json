@@ -1,0 +1,1556 @@
+{
+  "manifest_version": 1,
+  "type": "device",
+  "name": "BYD",
+  "description": {
+    "en": "Your BYD in Gladys: battery, range, charge, lock, climate, tyres, position and scenes.",
+    "fr": "Votre BYD dans Gladys : batterie, autonomie, charge, verrouillage, clim, pneus et scènes.",
+    "de": "Ihr BYD in Gladys: Batterie, Reichweite, Laden, Verriegelung, Klima, Reifen und Szenen.",
+    "es": "Su BYD en Gladys: batería, autonomía, carga, cierre, clima, neumáticos y escenas."
+  },
+  "version": "0.1.0",
+  "docker_image": "ghcr.io/william-de71/gladys-byd:0.1.0",
+  "gladys_version": ">=5.1.1",
+  "categories": ["energy", "security"],
+  "cover_image": "https://raw.githubusercontent.com/William-De71/gladys-byd/main/cover.jpg",
+  "transports": ["cloud"],
+  "location": true,
+  "config_schema": [
+    {
+      "key": "account_intro",
+      "type": "section",
+      "label": {
+        "en": "1. BYD account",
+        "fr": "1. Compte BYD",
+        "de": "1. BYD-Konto",
+        "es": "1. Cuenta BYD"
+      },
+      "description": {
+        "en": "Gladys reads your cars through the cloud of the BYD app (the overseas app, not the one for China), with the account of the app. Advice: the BYD app may sign your phone out when Gladys signs in with the same account; create a second account and share the car with it from the app, then enter that account here.",
+        "fr": "Gladys lit vos voitures via le cloud de l’app BYD (l’app internationale, pas celle pour la Chine), avec le compte de l’app. Conseil : l’app BYD peut déconnecter votre téléphone quand Gladys se connecte avec le même compte ; créez un second compte, partagez-lui la voiture depuis l’app, puis saisissez ce compte ici.",
+        "de": "Gladys liest Ihre Fahrzeuge über die Cloud der BYD-App (die internationale App, nicht die für China) mit dem Konto der App. Tipp: Die BYD-App kann Ihr Telefon abmelden, wenn Gladys sich mit demselben Konto anmeldet; legen Sie ein zweites Konto an, teilen Sie das Fahrzeug in der App damit und tragen Sie dieses Konto hier ein.",
+        "es": "Gladys lee sus coches a través de la nube de la app BYD (la app internacional, no la de China), con la cuenta de la app. Consejo: la app BYD puede cerrar la sesión de su teléfono cuando Gladys inicia sesión con la misma cuenta; cree una segunda cuenta, compártale el coche desde la app e introduzca esa cuenta aquí."
+      }
+    },
+    {
+      "key": "username",
+      "type": "string",
+      "label": {
+        "en": "E-mail address",
+        "fr": "Adresse e-mail",
+        "de": "E-Mail-Adresse",
+        "es": "Correo electrónico"
+      },
+      "placeholder": {
+        "en": "name@example.com",
+        "fr": "nom@exemple.fr",
+        "de": "name@beispiel.de",
+        "es": "nombre@ejemplo.es"
+      },
+      "required": true
+    },
+    {
+      "key": "password",
+      "type": "secret",
+      "label": {
+        "en": "Password",
+        "fr": "Mot de passe",
+        "de": "Passwort",
+        "es": "Contraseña"
+      },
+      "required": true
+    },
+    {
+      "key": "country",
+      "type": "string",
+      "label": {
+        "en": "Country of the account",
+        "fr": "Pays du compte",
+        "de": "Land des Kontos",
+        "es": "País de la cuenta"
+      },
+      "description": {
+        "en": "Two-letter code of the country the account was created in (FR, BE, DE, ES…): it picks the BYD server.",
+        "fr": "Code à deux lettres du pays où le compte a été créé (FR, BE, CH, LU…) : il choisit le serveur BYD.",
+        "de": "Zweibuchstabencode des Landes, in dem das Konto angelegt wurde (DE, AT, CH…): Er bestimmt den BYD-Server.",
+        "es": "Código de dos letras del país donde se creó la cuenta (ES, MX, AR…): elige el servidor de BYD."
+      },
+      "placeholder": {
+        "en": "FR",
+        "fr": "FR",
+        "de": "DE",
+        "es": "ES"
+      },
+      "default": "FR",
+      "required": true
+    },
+    {
+      "key": "commands_intro",
+      "type": "section",
+      "label": {
+        "en": "2. Remote control (optional)",
+        "fr": "2. Commandes à distance (facultatif)",
+        "de": "2. Fernsteuerung (optional)",
+        "es": "2. Control remoto (opcional)"
+      },
+      "description": {
+        "en": "To lock, unlock, start the climate or flash the lights from Gladys, enter the 6-digit remote control PIN set in the BYD app (a shared account sets its own). Without it, Gladys only reads. A refused PIN stops the commands until you change it here: repeated wrong PINs lock the remote control of the car for the day.",
+        "fr": "Pour verrouiller, déverrouiller, lancer la clim ou faire clignoter les feux depuis Gladys, saisissez le code PIN de commande à 6 chiffres défini dans l’app BYD (un compte partagé définit le sien). Sans lui, Gladys ne fait que lire. Un PIN refusé suspend les commandes jusqu’à sa modification ici : des PIN erronés répétés bloquent la commande à distance de la voiture pour la journée.",
+        "de": "Um aus Gladys zu verriegeln, zu entriegeln, das Klima zu starten oder die Lichter blinken zu lassen, geben Sie die 6-stellige Fernsteuerungs-PIN aus der BYD-App ein (ein geteiltes Konto legt seine eigene fest). Ohne sie liest Gladys nur. Eine abgelehnte PIN stoppt die Befehle, bis Sie sie hier ändern: Wiederholte falsche PINs sperren die Fernsteuerung des Fahrzeugs für den Tag.",
+        "es": "Para cerrar, abrir, encender el clima o hacer destellar las luces desde Gladys, introduzca el PIN de control remoto de 6 cifras definido en la app BYD (una cuenta compartida define el suyo). Sin él, Gladys solo lee. Un PIN rechazado detiene los comandos hasta que lo cambie aquí: varios PIN erróneos bloquean el control remoto del coche durante el día."
+      }
+    },
+    {
+      "key": "control_pin",
+      "type": "secret",
+      "label": {
+        "en": "Remote control PIN",
+        "fr": "Code PIN de commande",
+        "de": "Fernsteuerungs-PIN",
+        "es": "PIN de control remoto"
+      },
+      "required": false
+    },
+    {
+      "key": "options_intro",
+      "type": "section",
+      "label": {
+        "en": "Options",
+        "fr": "Options",
+        "de": "Optionen",
+        "es": "Opciones"
+      }
+    },
+    {
+      "key": "poll_interval",
+      "type": "number",
+      "label": {
+        "en": "Refresh interval (min)",
+        "fr": "Intervalle de lecture (min)",
+        "de": "Abfrageintervall (min)",
+        "es": "Intervalo de lectura (min)"
+      },
+      "description": {
+        "en": "Between 5 and 480 minutes. Each reading wakes the car up and costs a little battery: do not go below 15 minutes without a reason.",
+        "fr": "Entre 5 et 480 minutes. Chaque lecture réveille la voiture et consomme un peu de batterie : ne descendez pas sous 15 minutes sans raison.",
+        "de": "Zwischen 5 und 480 Minuten. Jedes Lesen weckt das Fahrzeug und kostet etwas Batterie: Gehen Sie nicht ohne Grund unter 15 Minuten.",
+        "es": "Entre 5 y 480 minutos. Cada lectura despierta el coche y gasta algo de batería: no baje de 15 minutos sin motivo."
+      },
+      "min": 5,
+      "max": 480,
+      "default": 15,
+      "required": false
+    },
+    {
+      "key": "climate_temperature",
+      "type": "number",
+      "label": {
+        "en": "Climate temperature (°C)",
+        "fr": "Température de la clim (°C)",
+        "de": "Klimatemperatur (°C)",
+        "es": "Temperatura del clima (°C)"
+      },
+      "description": {
+        "en": "Asked when the climate is started from Gladys, 15 to 31 °C.",
+        "fr": "Demandée quand la clim est lancée depuis Gladys, de 15 à 31 °C.",
+        "de": "Wird beim Start des Klimas aus Gladys angefordert, 15 bis 31 °C.",
+        "es": "Se pide al encender el clima desde Gladys, de 15 a 31 °C."
+      },
+      "min": 15,
+      "max": 31,
+      "default": 21,
+      "required": false
+    },
+    {
+      "key": "climate_duration",
+      "type": "select",
+      "label": {
+        "en": "Climate duration",
+        "fr": "Durée de la clim",
+        "de": "Klimadauer",
+        "es": "Duración del clima"
+      },
+      "options": [
+        {
+          "value": "10",
+          "label": {
+            "en": "10 min",
+            "fr": "10 min",
+            "de": "10 Min.",
+            "es": "10 min"
+          }
+        },
+        {
+          "value": "15",
+          "label": {
+            "en": "15 min",
+            "fr": "15 min",
+            "de": "15 Min.",
+            "es": "15 min"
+          }
+        },
+        {
+          "value": "20",
+          "label": {
+            "en": "20 min",
+            "fr": "20 min",
+            "de": "20 Min.",
+            "es": "20 min"
+          }
+        },
+        {
+          "value": "25",
+          "label": {
+            "en": "25 min",
+            "fr": "25 min",
+            "de": "25 Min.",
+            "es": "25 min"
+          }
+        },
+        {
+          "value": "30",
+          "label": {
+            "en": "30 min",
+            "fr": "30 min",
+            "de": "30 Min.",
+            "es": "30 min"
+          }
+        }
+      ],
+      "default": "20",
+      "required": false
+    },
+    {
+      "key": "home_radius",
+      "type": "number",
+      "label": {
+        "en": "Home radius (m)",
+        "fr": "Rayon du domicile (m)",
+        "de": "Radius um das Zuhause (m)",
+        "es": "Radio de la vivienda (m)"
+      },
+      "description": {
+        "en": "A car closer than this to a house of Gladys (with its position set) is home: distance feature and arrived/left scenes.",
+        "fr": "Une voiture plus proche que cela d’une maison de Gladys (dont la position est renseignée) est à la maison : distance et scènes arrivée/départ.",
+        "de": "Ein Fahrzeug, das näher als dieser Wert an einem Haus in Gladys (mit hinterlegter Position) ist, gilt als zu Hause: Entfernung und Szenen für Ankunft/Abfahrt.",
+        "es": "Un coche más cerca que este valor de una vivienda de Gladys (con su posición indicada) está en casa: distancia y escenas de llegada/salida."
+      },
+      "min": 50,
+      "max": 5000,
+      "default": 200,
+      "required": false
+    },
+    {
+      "key": "language",
+      "type": "select",
+      "label": {
+        "en": "Language of the texts",
+        "fr": "Langue des textes",
+        "de": "Sprache der Texte",
+        "es": "Idioma de los textos"
+      },
+      "description": {
+        "en": "Language of the device names, the charging status, the warnings and the scene summaries. Automatic: the language of your dashboard.",
+        "fr": "Langue des noms d’appareils, de l’état de la charge, des alertes et des résumés de scènes. Automatique : la langue de votre tableau de bord.",
+        "de": "Sprache der Gerätenamen, des Ladestatus, der Warnungen und der Szenen-Zusammenfassungen. Automatisch: die Sprache Ihres Dashboards.",
+        "es": "Idioma de los nombres de dispositivos, del estado de carga, de las alertas y de los resúmenes de escenas. Automático: el idioma de su panel."
+      },
+      "options": [
+        {
+          "value": "auto",
+          "label": {
+            "en": "Automatic",
+            "fr": "Automatique",
+            "de": "Automatisch",
+            "es": "Automático"
+          }
+        },
+        {
+          "value": "en",
+          "label": {
+            "en": "English",
+            "fr": "English",
+            "de": "English",
+            "es": "English"
+          }
+        },
+        {
+          "value": "fr",
+          "label": {
+            "en": "Français",
+            "fr": "Français",
+            "de": "Français",
+            "es": "Français"
+          }
+        },
+        {
+          "value": "de",
+          "label": {
+            "en": "Deutsch",
+            "fr": "Deutsch",
+            "de": "Deutsch",
+            "es": "Deutsch"
+          }
+        },
+        {
+          "value": "es",
+          "label": {
+            "en": "Español",
+            "fr": "Español",
+            "de": "Español",
+            "es": "Español"
+          }
+        }
+      ],
+      "default": "auto",
+      "required": false
+    }
+  ],
+  "actions": [
+    {
+      "key": "test_connection",
+      "label": {
+        "en": "Test the connection",
+        "fr": "Tester la connexion",
+        "de": "Verbindung testen",
+        "es": "Probar la conexión"
+      },
+      "description": {
+        "en": "Signs in and lists the cars of the account.",
+        "fr": "Se connecte et liste les voitures du compte.",
+        "de": "Meldet sich an und listet die Fahrzeuge des Kontos auf.",
+        "es": "Inicia sesión y lista los coches de la cuenta."
+      },
+      "timeout_seconds": 60
+    },
+    {
+      "key": "refresh",
+      "label": {
+        "en": "Read the cars now",
+        "fr": "Lire les voitures maintenant",
+        "de": "Fahrzeuge jetzt lesen",
+        "es": "Leer los coches ahora"
+      },
+      "description": {
+        "en": "Reads everything now (wakes the cars up).",
+        "fr": "Relit tout maintenant (réveille les voitures).",
+        "de": "Liest jetzt alles (weckt die Fahrzeuge).",
+        "es": "Lo lee todo ahora (despierta los coches)."
+      },
+      "timeout_seconds": 120
+    },
+    {
+      "key": "diagnostic",
+      "label": {
+        "en": "Diagnostic",
+        "fr": "Diagnostic",
+        "de": "Diagnose",
+        "es": "Diagnóstico"
+      },
+      "description": {
+        "en": "Writes the raw answers of BYD, without VIN, plate or position, to the Logs tab, for a bug report.",
+        "fr": "Écrit les réponses brutes de BYD, sans VIN, plaque ni position, dans l’onglet Journaux, pour un signalement.",
+        "de": "Schreibt die Rohantworten von BYD ohne VIN, Kennzeichen und Position in den Tab Protokolle, für eine Fehlermeldung.",
+        "es": "Escribe las respuestas brutas de BYD, sin VIN, matrícula ni posición, en la pestaña Registros, para un informe."
+      },
+      "timeout_seconds": 120
+    }
+  ],
+  "scene_triggers": [
+    {
+      "key": "lock_changed",
+      "label": {
+        "en": "BYD: locked or unlocked",
+        "fr": "BYD : verrouillée ou déverrouillée",
+        "de": "BYD: ver- oder entriegelt",
+        "es": "BYD: cerrado o abierto"
+      },
+      "description": {
+        "en": "The car is locked or unlocked. Checked at the refresh interval.",
+        "fr": "La voiture est verrouillée ou déverrouillée. Vérifié à l’intervalle de lecture.",
+        "de": "Das Fahrzeug wird ver- oder entriegelt. Geprüft im Abfrageintervall.",
+        "es": "El coche se cierra o se abre. Se comprueba en cada intervalo de lectura."
+      },
+      "fields": [
+        {
+          "key": "vehicle",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Car",
+            "fr": "Voiture",
+            "de": "Fahrzeug",
+            "es": "Coche"
+          },
+          "description": {
+            "en": "Leave empty for any car.",
+            "fr": "Laissez vide pour toutes les voitures.",
+            "de": "Leer lassen für alle Fahrzeuge.",
+            "es": "Déjelo vacío para cualquier coche."
+          },
+          "required": false
+        },
+        {
+          "key": "state",
+          "type": "select",
+          "label": {
+            "en": "New state",
+            "fr": "Nouvel état",
+            "de": "Neuer Zustand",
+            "es": "Nuevo estado"
+          },
+          "options": [
+            {
+              "value": "locked",
+              "label": {
+                "en": "Locked",
+                "fr": "Verrouillée",
+                "de": "Verriegelt",
+                "es": "Cerrado"
+              }
+            },
+            {
+              "value": "unlocked",
+              "label": {
+                "en": "Unlocked",
+                "fr": "Déverrouillée",
+                "de": "Entriegelt",
+                "es": "Abierto"
+              }
+            }
+          ],
+          "required": false
+        }
+      ],
+      "variables": [
+        {
+          "key": "vehicle_name",
+          "type": "string",
+          "label": {
+            "en": "Car",
+            "fr": "Voiture",
+            "de": "Fahrzeug",
+            "es": "Coche"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary",
+            "fr": "Résumé",
+            "de": "Zusammenfassung",
+            "es": "Resumen"
+          },
+          "description": {
+            "en": "A sentence ready to put in a message.",
+            "fr": "Une phrase prête à mettre dans un message.",
+            "de": "Ein Satz, der direkt in eine Nachricht passt.",
+            "es": "Una frase lista para poner en un mensaje."
+          }
+        }
+      ]
+    },
+    {
+      "key": "left_open",
+      "label": {
+        "en": "BYD: locked but left open",
+        "fr": "BYD : verrouillée mais ouverte",
+        "de": "BYD: verriegelt, aber offen",
+        "es": "BYD: cerrado pero abierto"
+      },
+      "description": {
+        "en": "The car is locked while a door, the trunk or a window is still open.",
+        "fr": "La voiture est verrouillée alors qu’une porte, le coffre ou une vitre reste ouvert.",
+        "de": "Das Fahrzeug ist verriegelt, während eine Tür, der Kofferraum oder ein Fenster noch offen ist.",
+        "es": "El coche está cerrado mientras una puerta, el maletero o una ventanilla sigue abierto."
+      },
+      "fields": [
+        {
+          "key": "vehicle",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Car",
+            "fr": "Voiture",
+            "de": "Fahrzeug",
+            "es": "Coche"
+          },
+          "description": {
+            "en": "Leave empty for any car.",
+            "fr": "Laissez vide pour toutes les voitures.",
+            "de": "Leer lassen für alle Fahrzeuge.",
+            "es": "Déjelo vacío para cualquier coche."
+          },
+          "required": false
+        }
+      ],
+      "variables": [
+        {
+          "key": "vehicle_name",
+          "type": "string",
+          "label": {
+            "en": "Car",
+            "fr": "Voiture",
+            "de": "Fahrzeug",
+            "es": "Coche"
+          }
+        },
+        {
+          "key": "openings",
+          "type": "string",
+          "label": {
+            "en": "Openings",
+            "fr": "Ouvrants",
+            "de": "Öffnungen",
+            "es": "Aperturas"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary",
+            "fr": "Résumé",
+            "de": "Zusammenfassung",
+            "es": "Resumen"
+          },
+          "description": {
+            "en": "A sentence ready to put in a message.",
+            "fr": "Une phrase prête à mettre dans un message.",
+            "de": "Ein Satz, der direkt in eine Nachricht passt.",
+            "es": "Una frase lista para poner en un mensaje."
+          }
+        }
+      ]
+    },
+    {
+      "key": "charging_changed",
+      "label": {
+        "en": "BYD: charge started or stopped",
+        "fr": "BYD : charge démarrée ou arrêtée",
+        "de": "BYD: Laden gestartet oder beendet",
+        "es": "BYD: carga iniciada o detenida"
+      },
+      "description": {
+        "en": "The car starts or stops charging.",
+        "fr": "La voiture commence ou arrête de charger.",
+        "de": "Das Fahrzeug beginnt oder beendet das Laden.",
+        "es": "El coche empieza o deja de cargar."
+      },
+      "fields": [
+        {
+          "key": "vehicle",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Car",
+            "fr": "Voiture",
+            "de": "Fahrzeug",
+            "es": "Coche"
+          },
+          "description": {
+            "en": "Leave empty for any car.",
+            "fr": "Laissez vide pour toutes les voitures.",
+            "de": "Leer lassen für alle Fahrzeuge.",
+            "es": "Déjelo vacío para cualquier coche."
+          },
+          "required": false
+        },
+        {
+          "key": "state",
+          "type": "select",
+          "label": {
+            "en": "New state",
+            "fr": "Nouvel état",
+            "de": "Neuer Zustand",
+            "es": "Nuevo estado"
+          },
+          "options": [
+            {
+              "value": "started",
+              "label": {
+                "en": "Started",
+                "fr": "Démarrée",
+                "de": "Gestartet",
+                "es": "Iniciada"
+              }
+            },
+            {
+              "value": "stopped",
+              "label": {
+                "en": "Stopped",
+                "fr": "Arrêtée",
+                "de": "Beendet",
+                "es": "Detenida"
+              }
+            }
+          ],
+          "required": false
+        }
+      ],
+      "variables": [
+        {
+          "key": "vehicle_name",
+          "type": "string",
+          "label": {
+            "en": "Car",
+            "fr": "Voiture",
+            "de": "Fahrzeug",
+            "es": "Coche"
+          }
+        },
+        {
+          "key": "battery_level",
+          "type": "number",
+          "label": {
+            "en": "Battery (%)",
+            "fr": "Batterie (%)",
+            "de": "Batterie (%)",
+            "es": "Batería (%)"
+          }
+        },
+        {
+          "key": "range_km",
+          "type": "number",
+          "label": {
+            "en": "Range (km)",
+            "fr": "Autonomie (km)",
+            "de": "Reichweite (km)",
+            "es": "Autonomía (km)"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary",
+            "fr": "Résumé",
+            "de": "Zusammenfassung",
+            "es": "Resumen"
+          },
+          "description": {
+            "en": "A sentence ready to put in a message.",
+            "fr": "Une phrase prête à mettre dans un message.",
+            "de": "Ein Satz, der direkt in eine Nachricht passt.",
+            "es": "Una frase lista para poner en un mensaje."
+          }
+        }
+      ]
+    },
+    {
+      "key": "charger_connection_changed",
+      "label": {
+        "en": "BYD: cable plugged or unplugged",
+        "fr": "BYD : câble branché ou débranché",
+        "de": "BYD: Kabel ein- oder ausgesteckt",
+        "es": "BYD: cable enchufado o desenchufado"
+      },
+      "description": {
+        "en": "The charging cable is plugged in or unplugged.",
+        "fr": "Le câble de charge est branché ou débranché.",
+        "de": "Das Ladekabel wird ein- oder ausgesteckt.",
+        "es": "El cable de carga se enchufa o se desenchufa."
+      },
+      "fields": [
+        {
+          "key": "vehicle",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Car",
+            "fr": "Voiture",
+            "de": "Fahrzeug",
+            "es": "Coche"
+          },
+          "description": {
+            "en": "Leave empty for any car.",
+            "fr": "Laissez vide pour toutes les voitures.",
+            "de": "Leer lassen für alle Fahrzeuge.",
+            "es": "Déjelo vacío para cualquier coche."
+          },
+          "required": false
+        },
+        {
+          "key": "state",
+          "type": "select",
+          "label": {
+            "en": "New state",
+            "fr": "Nouvel état",
+            "de": "Neuer Zustand",
+            "es": "Nuevo estado"
+          },
+          "options": [
+            {
+              "value": "connected",
+              "label": {
+                "en": "Plugged in",
+                "fr": "Branché",
+                "de": "Eingesteckt",
+                "es": "Enchufado"
+              }
+            },
+            {
+              "value": "disconnected",
+              "label": {
+                "en": "Unplugged",
+                "fr": "Débranché",
+                "de": "Ausgesteckt",
+                "es": "Desenchufado"
+              }
+            }
+          ],
+          "required": false
+        }
+      ],
+      "variables": [
+        {
+          "key": "vehicle_name",
+          "type": "string",
+          "label": {
+            "en": "Car",
+            "fr": "Voiture",
+            "de": "Fahrzeug",
+            "es": "Coche"
+          }
+        },
+        {
+          "key": "battery_level",
+          "type": "number",
+          "label": {
+            "en": "Battery (%)",
+            "fr": "Batterie (%)",
+            "de": "Batterie (%)",
+            "es": "Batería (%)"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary",
+            "fr": "Résumé",
+            "de": "Zusammenfassung",
+            "es": "Resumen"
+          },
+          "description": {
+            "en": "A sentence ready to put in a message.",
+            "fr": "Une phrase prête à mettre dans un message.",
+            "de": "Ein Satz, der direkt in eine Nachricht passt.",
+            "es": "Una frase lista para poner en un mensaje."
+          }
+        }
+      ]
+    },
+    {
+      "key": "home_changed",
+      "label": {
+        "en": "BYD: arrived home or left",
+        "fr": "BYD : arrivée ou départ de la maison",
+        "de": "BYD: zu Hause angekommen oder abgefahren",
+        "es": "BYD: llegada o salida de casa"
+      },
+      "description": {
+        "en": "The car comes within the home radius of a house of Gladys, or leaves it.",
+        "fr": "La voiture entre dans le rayon du domicile d’une maison de Gladys, ou en sort.",
+        "de": "Das Fahrzeug kommt in den Radius eines Hauses in Gladys oder verlässt ihn.",
+        "es": "El coche entra en el radio de una vivienda de Gladys o sale de él."
+      },
+      "fields": [
+        {
+          "key": "vehicle",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Car",
+            "fr": "Voiture",
+            "de": "Fahrzeug",
+            "es": "Coche"
+          },
+          "description": {
+            "en": "Leave empty for any car.",
+            "fr": "Laissez vide pour toutes les voitures.",
+            "de": "Leer lassen für alle Fahrzeuge.",
+            "es": "Déjelo vacío para cualquier coche."
+          },
+          "required": false
+        },
+        {
+          "key": "state",
+          "type": "select",
+          "label": {
+            "en": "Event",
+            "fr": "Événement",
+            "de": "Ereignis",
+            "es": "Evento"
+          },
+          "options": [
+            {
+              "value": "arrived",
+              "label": {
+                "en": "Arrived",
+                "fr": "Arrivée",
+                "de": "Angekommen",
+                "es": "Llegada"
+              }
+            },
+            {
+              "value": "left",
+              "label": {
+                "en": "Left",
+                "fr": "Départ",
+                "de": "Abgefahren",
+                "es": "Salida"
+              }
+            }
+          ],
+          "required": false
+        }
+      ],
+      "variables": [
+        {
+          "key": "vehicle_name",
+          "type": "string",
+          "label": {
+            "en": "Car",
+            "fr": "Voiture",
+            "de": "Fahrzeug",
+            "es": "Coche"
+          }
+        },
+        {
+          "key": "distance_km",
+          "type": "number",
+          "label": {
+            "en": "Distance from home (km)",
+            "fr": "Distance du domicile (km)",
+            "de": "Entfernung von zu Hause (km)",
+            "es": "Distancia de casa (km)"
+          }
+        },
+        {
+          "key": "battery_level",
+          "type": "number",
+          "label": {
+            "en": "Battery (%)",
+            "fr": "Batterie (%)",
+            "de": "Batterie (%)",
+            "es": "Batería (%)"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary",
+            "fr": "Résumé",
+            "de": "Zusammenfassung",
+            "es": "Resumen"
+          },
+          "description": {
+            "en": "A sentence ready to put in a message.",
+            "fr": "Une phrase prête à mettre dans un message.",
+            "de": "Ein Satz, der direkt in eine Nachricht passt.",
+            "es": "Una frase lista para poner en un mensaje."
+          }
+        }
+      ]
+    },
+    {
+      "key": "warning_raised",
+      "label": {
+        "en": "BYD: warning light on",
+        "fr": "BYD : voyant d’alerte allumé",
+        "de": "BYD: Warnleuchte an",
+        "es": "BYD: testigo de alerta encendido"
+      },
+      "description": {
+        "en": "A warning of the car turns on (tyres, brakes, power system…).",
+        "fr": "Une alerte de la voiture s’allume (pneus, freins, propulsion…).",
+        "de": "Eine Warnung des Fahrzeugs geht an (Reifen, Bremsen, Antrieb…).",
+        "es": "Se enciende una alerta del coche (neumáticos, frenos, propulsión…)."
+      },
+      "fields": [
+        {
+          "key": "vehicle",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Car",
+            "fr": "Voiture",
+            "de": "Fahrzeug",
+            "es": "Coche"
+          },
+          "description": {
+            "en": "Leave empty for any car.",
+            "fr": "Laissez vide pour toutes les voitures.",
+            "de": "Leer lassen für alle Fahrzeuge.",
+            "es": "Déjelo vacío para cualquier coche."
+          },
+          "required": false
+        },
+        {
+          "key": "warning",
+          "type": "select",
+          "label": {
+            "en": "Warning",
+            "fr": "Alerte",
+            "de": "Warnung",
+            "es": "Alerta"
+          },
+          "options": [
+            {
+              "value": "tyre_pressure",
+              "label": {
+                "en": "Tyre pressure",
+                "fr": "Pression des pneus",
+                "de": "Reifendruck",
+                "es": "Presión de neumáticos"
+              }
+            },
+            {
+              "value": "tyre_leak",
+              "label": {
+                "en": "Tyre leak",
+                "fr": "Fuite de pneu",
+                "de": "Reifenleck",
+                "es": "Pinchazo"
+              }
+            },
+            {
+              "value": "power_system",
+              "label": {
+                "en": "Power system",
+                "fr": "Système de propulsion",
+                "de": "Antriebssystem",
+                "es": "Sistema de propulsión"
+              }
+            },
+            {
+              "value": "braking",
+              "label": {
+                "en": "Brakes",
+                "fr": "Freinage",
+                "de": "Bremsen",
+                "es": "Frenos"
+              }
+            },
+            {
+              "value": "charging_system",
+              "label": {
+                "en": "Charging system",
+                "fr": "Système de charge",
+                "de": "Ladesystem",
+                "es": "Sistema de carga"
+              }
+            },
+            {
+              "value": "steering",
+              "label": {
+                "en": "Steering",
+                "fr": "Direction",
+                "de": "Lenkung",
+                "es": "Dirección"
+              }
+            },
+            {
+              "value": "abs",
+              "label": {
+                "en": "ABS",
+                "fr": "ABS",
+                "de": "ABS",
+                "es": "ABS"
+              }
+            },
+            {
+              "value": "esp",
+              "label": {
+                "en": "ESP",
+                "fr": "ESP",
+                "de": "ESP",
+                "es": "ESP"
+              }
+            },
+            {
+              "value": "eps",
+              "label": {
+                "en": "Power steering",
+                "fr": "Direction assistée",
+                "de": "Servolenkung",
+                "es": "Dirección asistida"
+              }
+            },
+            {
+              "value": "airbag",
+              "label": {
+                "en": "Airbag",
+                "fr": "Airbag",
+                "de": "Airbag",
+                "es": "Airbag"
+              }
+            },
+            {
+              "value": "service",
+              "label": {
+                "en": "Service due",
+                "fr": "Entretien à prévoir",
+                "de": "Wartung fällig",
+                "es": "Mantenimiento"
+              }
+            },
+            {
+              "value": "coolant",
+              "label": {
+                "en": "Coolant",
+                "fr": "Liquide de refroidissement",
+                "de": "Kühlmittel",
+                "es": "Refrigerante"
+              }
+            }
+          ],
+          "required": false
+        }
+      ],
+      "variables": [
+        {
+          "key": "vehicle_name",
+          "type": "string",
+          "label": {
+            "en": "Car",
+            "fr": "Voiture",
+            "de": "Fahrzeug",
+            "es": "Coche"
+          }
+        },
+        {
+          "key": "warning_label",
+          "type": "string",
+          "label": {
+            "en": "Warning",
+            "fr": "Alerte",
+            "de": "Warnung",
+            "es": "Alerta"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary",
+            "fr": "Résumé",
+            "de": "Zusammenfassung",
+            "es": "Resumen"
+          },
+          "description": {
+            "en": "A sentence ready to put in a message.",
+            "fr": "Une phrase prête à mettre dans un message.",
+            "de": "Ein Satz, der direkt in eine Nachricht passt.",
+            "es": "Una frase lista para poner en un mensaje."
+          }
+        }
+      ]
+    },
+    {
+      "key": "account_problem",
+      "label": {
+        "en": "BYD: account problem",
+        "fr": "BYD : problème de compte",
+        "de": "BYD: Kontoproblem",
+        "es": "BYD: problema de cuenta"
+      },
+      "description": {
+        "en": "BYD refuses the sign-in, or the remote control PIN: the integration needs you.",
+        "fr": "BYD refuse la connexion ou le code PIN de commande : l’intégration a besoin de vous.",
+        "de": "BYD lehnt die Anmeldung oder die Fernsteuerungs-PIN ab: Die Integration braucht Sie.",
+        "es": "BYD rechaza el inicio de sesión o el PIN de control remoto: la integración le necesita."
+      },
+      "fields": [
+        {
+          "key": "problem",
+          "type": "select",
+          "label": {
+            "en": "Problem",
+            "fr": "Problème",
+            "de": "Problem",
+            "es": "Problema"
+          },
+          "options": [
+            {
+              "value": "login_refused",
+              "label": {
+                "en": "Sign-in refused",
+                "fr": "Connexion refusée",
+                "de": "Anmeldung abgelehnt",
+                "es": "Inicio de sesión rechazado"
+              }
+            },
+            {
+              "value": "pin_refused",
+              "label": {
+                "en": "PIN refused",
+                "fr": "PIN refusé",
+                "de": "PIN abgelehnt",
+                "es": "PIN rechazado"
+              }
+            }
+          ],
+          "required": false
+        }
+      ],
+      "variables": [
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary",
+            "fr": "Résumé",
+            "de": "Zusammenfassung",
+            "es": "Resumen"
+          },
+          "description": {
+            "en": "A sentence ready to put in a message.",
+            "fr": "Une phrase prête à mettre dans un message.",
+            "de": "Ein Satz, der direkt in eine Nachricht passt.",
+            "es": "Una frase lista para poner en un mensaje."
+          }
+        }
+      ]
+    }
+  ],
+  "scene_actions": [
+    {
+      "key": "send_command",
+      "label": {
+        "en": "BYD: send a command",
+        "fr": "BYD : envoyer une commande",
+        "de": "BYD: Befehl senden",
+        "es": "BYD: enviar un comando"
+      },
+      "description": {
+        "en": "Lock, unlock, climate, flash the lights, find my car. Needs the PIN; waits for the car.",
+        "fr": "Verrouiller, déverrouiller, clim, feux, localisation sonore. Demande le PIN ; attend la voiture.",
+        "de": "Verriegeln, entriegeln, Klima, Lichtsignal, Fahrzeug finden. Braucht die PIN; wartet auf das Fahrzeug.",
+        "es": "Cerrar, abrir, clima, luces, localizar coche. Necesita el PIN; espera al coche."
+      },
+      "timeout_seconds": 120,
+      "fields": [
+        {
+          "key": "vehicle",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Car",
+            "fr": "Voiture",
+            "de": "Fahrzeug",
+            "es": "Coche"
+          },
+          "description": {
+            "en": "Leave empty for the first car.",
+            "fr": "Laissez vide pour la première voiture.",
+            "de": "Leer lassen für das erste Fahrzeug.",
+            "es": "Déjelo vacío para el primer coche."
+          },
+          "required": false
+        },
+        {
+          "key": "command",
+          "type": "select",
+          "label": {
+            "en": "Command",
+            "fr": "Commande",
+            "de": "Befehl",
+            "es": "Comando"
+          },
+          "options": [
+            {
+              "value": "lock",
+              "label": {
+                "en": "Lock",
+                "fr": "Verrouiller",
+                "de": "Verriegeln",
+                "es": "Cerrar"
+              }
+            },
+            {
+              "value": "unlock",
+              "label": {
+                "en": "Unlock",
+                "fr": "Déverrouiller",
+                "de": "Entriegeln",
+                "es": "Abrir"
+              }
+            },
+            {
+              "value": "climate_start",
+              "label": {
+                "en": "Start the climate",
+                "fr": "Lancer la climatisation",
+                "de": "Klimatisierung starten",
+                "es": "Encender la climatización"
+              }
+            },
+            {
+              "value": "climate_stop",
+              "label": {
+                "en": "Stop the climate",
+                "fr": "Arrêter la climatisation",
+                "de": "Klimatisierung stoppen",
+                "es": "Apagar la climatización"
+              }
+            },
+            {
+              "value": "flash_lights",
+              "label": {
+                "en": "Flash the lights",
+                "fr": "Faire clignoter les feux",
+                "de": "Lichter blinken lassen",
+                "es": "Hacer destellar las luces"
+              }
+            },
+            {
+              "value": "find_car",
+              "label": {
+                "en": "Find my car (horn and lights)",
+                "fr": "Localiser (klaxon et feux)",
+                "de": "Fahrzeug finden (Hupe und Licht)",
+                "es": "Localizar (claxon y luces)"
+              }
+            }
+          ],
+          "required": true
+        }
+      ],
+      "outputs": [
+        {
+          "key": "success",
+          "type": "boolean",
+          "label": {
+            "en": "Carried out",
+            "fr": "Exécutée",
+            "de": "Ausgeführt",
+            "es": "Ejecutado"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary",
+            "fr": "Résumé",
+            "de": "Zusammenfassung",
+            "es": "Resumen"
+          }
+        }
+      ]
+    },
+    {
+      "key": "get_status",
+      "label": {
+        "en": "BYD: car status",
+        "fr": "BYD : état de la voiture",
+        "de": "BYD: Fahrzeugstatus",
+        "es": "BYD: estado del coche"
+      },
+      "description": {
+        "en": "Lock, openings, battery, range, charge, climate, position and warnings.",
+        "fr": "Verrouillage, ouvrants, batterie, autonomie, charge, clim, position et alertes.",
+        "de": "Verriegelung, Öffnungen, Batterie, Reichweite, Laden, Klima, Position und Warnungen.",
+        "es": "Cierre, aperturas, batería, autonomía, carga, clima, posición y alertas."
+      },
+      "timeout_seconds": 90,
+      "fields": [
+        {
+          "key": "vehicle",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Car",
+            "fr": "Voiture",
+            "de": "Fahrzeug",
+            "es": "Coche"
+          },
+          "description": {
+            "en": "Leave empty for the first car.",
+            "fr": "Laissez vide pour la première voiture.",
+            "de": "Leer lassen für das erste Fahrzeug.",
+            "es": "Déjelo vacío para el primer coche."
+          },
+          "required": false
+        },
+        {
+          "key": "refresh",
+          "type": "boolean",
+          "label": {
+            "en": "Read the car now",
+            "fr": "Lire la voiture maintenant",
+            "de": "Fahrzeug jetzt lesen",
+            "es": "Leer el coche ahora"
+          },
+          "description": {
+            "en": "Otherwise the last reading is used. Reading wakes the car up.",
+            "fr": "Sinon la dernière lecture est utilisée. Lire réveille la voiture.",
+            "de": "Sonst wird das letzte Lesen verwendet. Lesen weckt das Fahrzeug.",
+            "es": "Si no, se usa la última lectura. Leer despierta el coche."
+          },
+          "default": false,
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "key": "vehicle_name",
+          "type": "string",
+          "label": {
+            "en": "Car",
+            "fr": "Voiture",
+            "de": "Fahrzeug",
+            "es": "Coche"
+          }
+        },
+        {
+          "key": "locked",
+          "type": "boolean",
+          "label": {
+            "en": "Locked",
+            "fr": "Verrouillée",
+            "de": "Verriegelt",
+            "es": "Cerrado"
+          }
+        },
+        {
+          "key": "all_closed",
+          "type": "boolean",
+          "label": {
+            "en": "All closed",
+            "fr": "Tout est fermé",
+            "de": "Alles geschlossen",
+            "es": "Todo cerrado"
+          }
+        },
+        {
+          "key": "openings",
+          "type": "string",
+          "label": {
+            "en": "Openings",
+            "fr": "Ouvrants",
+            "de": "Öffnungen",
+            "es": "Aperturas"
+          }
+        },
+        {
+          "key": "battery_level",
+          "type": "number",
+          "label": {
+            "en": "Battery (%)",
+            "fr": "Batterie (%)",
+            "de": "Batterie (%)",
+            "es": "Batería (%)"
+          }
+        },
+        {
+          "key": "range_km",
+          "type": "number",
+          "label": {
+            "en": "Range (km)",
+            "fr": "Autonomie (km)",
+            "de": "Reichweite (km)",
+            "es": "Autonomía (km)"
+          }
+        },
+        {
+          "key": "charging",
+          "type": "boolean",
+          "label": {
+            "en": "Charging",
+            "fr": "En charge",
+            "de": "Lädt",
+            "es": "Cargando"
+          }
+        },
+        {
+          "key": "plugged",
+          "type": "boolean",
+          "label": {
+            "en": "Plugged in",
+            "fr": "Branchée",
+            "de": "Angeschlossen",
+            "es": "Enchufado"
+          }
+        },
+        {
+          "key": "minutes_to_full",
+          "type": "number",
+          "label": {
+            "en": "Minutes to full",
+            "fr": "Minutes avant pleine charge",
+            "de": "Minuten bis voll",
+            "es": "Minutos hasta carga completa"
+          }
+        },
+        {
+          "key": "climate_on",
+          "type": "boolean",
+          "label": {
+            "en": "Climate on",
+            "fr": "Clim en marche",
+            "de": "Klima an",
+            "es": "Clima encendido"
+          }
+        },
+        {
+          "key": "inside_temperature",
+          "type": "number",
+          "label": {
+            "en": "Inside temperature (°C)",
+            "fr": "Température intérieure (°C)",
+            "de": "Innentemperatur (°C)",
+            "es": "Temperatura interior (°C)"
+          }
+        },
+        {
+          "key": "odometer_km",
+          "type": "number",
+          "label": {
+            "en": "Odometer (km)",
+            "fr": "Compteur (km)",
+            "de": "Kilometerstand (km)",
+            "es": "Cuentakilómetros (km)"
+          }
+        },
+        {
+          "key": "at_home",
+          "type": "boolean",
+          "label": {
+            "en": "At home",
+            "fr": "À la maison",
+            "de": "Zu Hause",
+            "es": "En casa"
+          }
+        },
+        {
+          "key": "distance_home_km",
+          "type": "number",
+          "label": {
+            "en": "Distance from home (km)",
+            "fr": "Distance du domicile (km)",
+            "de": "Entfernung von zu Hause (km)",
+            "es": "Distancia de casa (km)"
+          }
+        },
+        {
+          "key": "latitude",
+          "type": "number",
+          "label": {
+            "en": "Latitude",
+            "fr": "Latitude",
+            "de": "Breitengrad",
+            "es": "Latitud"
+          }
+        },
+        {
+          "key": "longitude",
+          "type": "number",
+          "label": {
+            "en": "Longitude",
+            "fr": "Longitude",
+            "de": "Längengrad",
+            "es": "Longitud"
+          }
+        },
+        {
+          "key": "map_url",
+          "type": "string",
+          "label": {
+            "en": "Map link",
+            "fr": "Lien de carte",
+            "de": "Kartenlink",
+            "es": "Enlace al mapa"
+          }
+        },
+        {
+          "key": "warnings",
+          "type": "string",
+          "label": {
+            "en": "Warnings",
+            "fr": "Alertes",
+            "de": "Warnungen",
+            "es": "Alertas"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary",
+            "fr": "Résumé",
+            "de": "Zusammenfassung",
+            "es": "Resumen"
+          },
+          "description": {
+            "en": "A sentence ready to put in a message.",
+            "fr": "Une phrase prête à mettre dans un message.",
+            "de": "Ein Satz, der direkt in eine Nachricht passt.",
+            "es": "Una frase lista para poner en un mensaje."
+          }
+        }
+      ]
+    }
+  ],
+  "widgets": [
+    {
+      "key": "vehicle",
+      "label": {
+        "en": "BYD car",
+        "fr": "Voiture BYD",
+        "de": "BYD-Fahrzeug",
+        "es": "Coche BYD"
+      },
+      "description": {
+        "en": "The car with its picture, battery, range, lock, openings, charge and quick buttons.",
+        "fr": "La voiture avec sa photo, batterie, autonomie, verrouillage, ouvrants, charge et boutons.",
+        "de": "Das Fahrzeug mit Bild, Batterie, Reichweite, Verriegelung, Öffnungen, Laden und Tasten.",
+        "es": "El coche con su foto, batería, autonomía, cierre, aperturas, carga y botones."
+      },
+      "icon": "truck",
+      "settings": [
+        {
+          "key": "vehicle",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Car",
+            "fr": "Voiture",
+            "de": "Fahrzeug",
+            "es": "Coche"
+          },
+          "description": {
+            "en": "Leave empty for the first car.",
+            "fr": "Laissez vide pour la première voiture.",
+            "de": "Leer lassen für das erste Fahrzeug.",
+            "es": "Déjelo vacío para el primer coche."
+          },
+          "required": false
+        },
+        {
+          "key": "show_buttons",
+          "type": "boolean",
+          "label": {
+            "en": "Show the buttons",
+            "fr": "Afficher les boutons",
+            "de": "Tasten anzeigen",
+            "es": "Mostrar los botones"
+          },
+          "description": {
+            "en": "Lock/unlock, climate, flash the lights (need the PIN), map.",
+            "fr": "Verrouiller/déverrouiller, clim, feux (PIN requis), carte.",
+            "de": "Ver-/Entriegeln, Klima, Lichtsignal (PIN nötig), Karte.",
+            "es": "Cerrar/abrir, clima, luces (PIN necesario), mapa."
+          },
+          "default": true,
+          "required": false
+        }
+      ],
+      "action_timeout_seconds": 15
+    }
+  ]
+}

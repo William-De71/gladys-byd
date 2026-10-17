@@ -56,19 +56,44 @@
     <filter id="soft" x="-20%" y="-50%" width="140%" height="200%">
       <feGaussianBlur stdDeviation="10"/>
     </filter>
+    <linearGradient id="paint" x1="0" y1="250" x2="0" y2="404" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f7f9fc"/>
+      <stop offset="0.38" stop-color="#e3e9f0"/>
+      <stop offset="0.45" stop-color="#ffffff"/>
+      <stop offset="0.5" stop-color="#9eabbd"/>
+      <stop offset="0.58" stop-color="#d5dde7"/>
+      <stop offset="0.8" stop-color="#a3b0c1"/>
+      <stop offset="1" stop-color="#46546a"/>
+    </linearGradient>
+    <linearGradient id="dlo" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0c1726"/>
+      <stop offset="0.55" stop-color="#1b324e"/>
+      <stop offset="1" stop-color="#0a1422"/>
+    </linearGradient>
+    <linearGradient id="tyre" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a313c"/>
+      <stop offset="1" stop-color="#07090d"/>
+    </linearGradient>
+    <clipPath id="bodyclip"><use href="#bodyshape"/></clipPath>
+    <path id="bodyshape" d="M690 400 Q704 392 702 376 Q701 362 686 353 Q608 334 528 318
+             C492 290 460 272 420 265 Q362 256 300 267 C252 277 206 299 168 315
+             Q146 320 139 330 C128 346 126 374 130 392 L134 402 L177 402 A48 48 0 0 1 273 402
+             L542 402 A48 48 0 0 1 638 402 Z"/>
     <g id="wheel">
-      <circle r="45" fill="#0a0e15"/>
-      <circle r="41" fill="none" stroke="#1d2532" stroke-width="2"/>
-      <circle r="31" fill="url(#rim)"/>
+      <circle r="44" fill="url(#tyre)"/>
+      <circle r="35" fill="#11161e"/>
+      <circle r="33" fill="url(#rim)"/>
       <g fill="#1a2230">
-        <path d="M-4 -9 L-7 -28 Q0 -30 7 -28 L4 -9 Z"/>
-        <path d="M-4 -9 L-7 -28 Q0 -30 7 -28 L4 -9 Z" transform="rotate(72)"/>
-        <path d="M-4 -9 L-7 -28 Q0 -30 7 -28 L4 -9 Z" transform="rotate(144)"/>
-        <path d="M-4 -9 L-7 -28 Q0 -30 7 -28 L4 -9 Z" transform="rotate(216)"/>
-        <path d="M-4 -9 L-7 -28 Q0 -30 7 -28 L4 -9 Z" transform="rotate(288)"/>
+        <path id="spoke" d="M-2 -10 Q-9 -20 -6 -31 L0 -32 Q-2 -20 3 -10 Z"/>
+        <use href="#spoke" transform="rotate(36)"/><use href="#spoke" transform="rotate(72)"/>
+        <use href="#spoke" transform="rotate(108)"/><use href="#spoke" transform="rotate(144)"/>
+        <use href="#spoke" transform="rotate(180)"/><use href="#spoke" transform="rotate(216)"/>
+        <use href="#spoke" transform="rotate(252)"/><use href="#spoke" transform="rotate(288)"/>
+        <use href="#spoke" transform="rotate(324)"/>
       </g>
-      <circle r="9" fill="#5d6b7d"/>
-      <circle r="4" fill="#c9d2de"/>
+      <circle r="33" fill="none" stroke="#e8edf3" stroke-width="1.5" opacity="0.8"/>
+      <circle r="10" fill="#6b788a"/>
+      <circle r="5" fill="#d3dae4"/>
     </g>
   </defs>
 
@@ -90,40 +115,53 @@
   <text x="400" y="152" text-anchor="middle" font-family="Inter, DejaVu Sans, Arial, sans-serif"
         font-size="23" font-weight="500" letter-spacing="1" fill="#a9c8e8">for Gladys Assistant</text>
 
-  <!-- the car: an electric fastback, facing right -->
-  <ellipse cx="425" cy="448" rx="290" ry="12" fill="#02060c" opacity="0.85" filter="url(#glow)"/>
-  <path d="M201 402 A54 54 0 0 1 309 402 Z M511 402 A54 54 0 0 1 619 402 Z" fill="#05090f"/>
-  <path d="M152 402 L146 372 Q144 344 166 334 L206 320 C250 300 300 262 352 250 Q410 238 470 244
-           C510 248 540 262 574 288 L612 306 Q676 316 694 334 Q706 350 700 378 L696 402
-           L619 402 A54 54 0 0 0 511 402 L309 402 A54 54 0 0 0 201 402 Z" fill="url(#body)"/>
-  <!-- sill, in the shade -->
-  <path d="M309 402 L511 402 L508 388 L312 390 Z" fill="#3b4b5f" opacity="0.8"/>
-  <!-- greenhouse -->
-  <path d="M244 316 C288 292 326 270 362 263 Q412 254 464 258 C498 261 524 273 550 294
-           Q554 300 546 301 L252 318 Q240 320 244 316 Z" fill="url(#glass)"/>
-  <path d="M300 300 C330 278 352 268 380 264 L420 262 L404 309 L292 313 Z" fill="url(#glare)"/>
-  <path d="M424 258 L436 258 L428 309 L415 309 Z" fill="#0b1626"/>
-  <!-- shoulder highlight, door seams, handles -->
-  <path d="M176 338 C300 326 520 322 676 326" fill="none" stroke="url(#sheen)" stroke-width="3"/>
-  <path d="M190 360 C320 352 520 348 690 350" fill="none" stroke="#8193a8" stroke-width="1.2" opacity="0.6"/>
-  <path d="M415 312 L410 396" fill="none" stroke="#7d8ea3" stroke-width="1.2" opacity="0.7"/>
-  <rect x="356" y="326" width="30" height="4" rx="2" fill="#8a9bb0"/>
-  <rect x="486" y="322" width="30" height="4" rx="2" fill="#8a9bb0"/>
-  <!-- light strips, with their glow -->
-  <path d="M640 318 Q676 322 692 334" fill="none" stroke="#bfe6ff" stroke-width="7" stroke-linecap="round" filter="url(#glow)"/>
-  <path d="M640 318 Q676 322 692 334" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
-  <path d="M150 346 Q156 336 194 326" fill="none" stroke="#ff3b5c" stroke-width="7" stroke-linecap="round" filter="url(#glow)"/>
-  <path d="M150 346 Q156 336 194 326" fill="none" stroke="#ff7a90" stroke-width="3" stroke-linecap="round"/>
-  <!-- charging port, glowing green -->
-  <circle cx="226" cy="340" r="8" fill="#22c55e" filter="url(#glow)"/>
-  <circle cx="226" cy="340" r="4" fill="#bbf7d0"/>
-  <use href="#wheel" x="255" y="402"/>
-  <use href="#wheel" x="565" y="402"/>
-
+  <!-- the car: a low electric fastback, facing right (proportions of a
+       4.8 m long, 1.46 m high car with a 2.92 m wheelbase) -->
+  <g id="car">
+    <path d="M177 402 A48 48 0 0 1 273 402 Z M542 402 A48 48 0 0 1 638 402 Z" fill="#04070c"/>
+    <use href="#bodyshape" fill="url(#paint)"/>
+    <g clip-path="url(#bodyclip)">
+      <!-- rocker in the shade, lower sculpture rising to the rear -->
+      <path d="M268 404 L548 404 L546 384 Q420 380 278 388 Z" fill="#2b384a" opacity="0.85"/>
+      <path d="M140 372 C230 372 300 360 420 356 C520 352 600 350 700 352 L700 340 C600 338 500 340 420 344 C300 348 220 356 140 356 Z"
+            fill="#ffffff" opacity="0.18"/>
+      <!-- front intake and diffuser -->
+      <path d="M672 394 Q694 390 704 380 L704 404 L668 404 Z" fill="#141b26"/>
+      <path d="M128 386 Q150 390 176 390 L176 404 L128 404 Z" fill="#141b26"/>
+    </g>
+    <!-- side glass with its black surround and pillars -->
+    <path d="M509 318 C480 296 452 282 420 276 Q362 267 306 277 C264 286 226 302 196 316
+             Q194 325 202 325 L500 328 Q512 328 509 318 Z" fill="#0b1320"/>
+    <path d="M500 318 C476 298 450 286 420 281 Q394 277 380 277 L375 327 Z" fill="url(#dlo)"/>
+    <path d="M364 277 Q332 277 308 282 C272 290 240 304 214 321 L358 326 Z" fill="url(#dlo)"/>
+    <path d="M420 281 Q440 286 452 292 L394 327 L378 327 Z" fill="#ffffff" opacity="0.07"/>
+    <path d="M509 318 C480 296 452 282 420 276 Q362 267 306 277 C264 286 226 302 196 316"
+          fill="none" stroke="#c9d3df" stroke-width="1.5" opacity="0.7"/>
+    <!-- mirror -->
+    <path d="M500 322 Q494 306 506 304 Q522 303 524 314 Q525 320 514 321 Z" fill="#dfe6ee"/>
+    <path d="M504 321 Q500 312 508 309 L520 310 Q522 318 514 321 Z" fill="#0f1724"/>
+    <!-- shoulder highlight, door seams, flush handles -->
+    <path d="M168 330 C300 327 470 328 600 338" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.9"/>
+    <path d="M372 328 L367 392 M518 326 Q522 352 532 368 M262 320 Q270 340 268 360"
+          fill="none" stroke="#5f6f84" stroke-width="1.2" opacity="0.8"/>
+    <rect x="322" y="336" width="28" height="3.5" rx="1.75" fill="#7b8ba0"/>
+    <rect x="456" y="336" width="28" height="3.5" rx="1.75" fill="#7b8ba0"/>
+    <!-- light strips, with their glow -->
+    <path d="M648 342 Q680 348 698 362" fill="none" stroke="#bfe6ff" stroke-width="7" stroke-linecap="round" filter="url(#glow)"/>
+    <path d="M648 342 Q680 348 698 362" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M136 338 Q146 326 176 318" fill="none" stroke="#ff3b5c" stroke-width="7" stroke-linecap="round" filter="url(#glow)"/>
+    <path d="M136 338 Q146 326 176 318" fill="none" stroke="#ff8096" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- charging port, glowing green -->
+    <circle cx="206" cy="336" r="7" fill="#22c55e" filter="url(#glow)"/>
+    <circle cx="206" cy="336" r="3.5" fill="#bbf7d0"/>
+    <use href="#wheel" x="225" y="402"/>
+    <use href="#wheel" x="590" y="402"/>
+  </g>
+  <ellipse cx="408" cy="447" rx="300" ry="7" fill="#02060c" opacity="0.9" filter="url(#glow)"/>
   <!-- what the integration reads: status chips, linked to the car -->
   <g stroke="#7cc4ff" stroke-opacity="0.45" stroke-width="1.5" fill="none" stroke-dasharray="3 5">
-    <path d="M150 214 L150 280 L222 334"/>
-    <path d="M650 214 L650 260 L606 296"/>
+    <path d="M150 214 L150 280 L202 332"/>
+    <path d="M650 214 L650 262 L520 306"/>
   </g>
   <g font-family="Inter, DejaVu Sans, Arial, sans-serif" font-size="20" font-weight="600" fill="#ffffff">
     <!-- battery, charging -->

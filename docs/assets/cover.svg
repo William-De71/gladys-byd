@@ -1,53 +1,163 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="534" viewBox="0 0 800 534">
-  <!-- Cover of the BYD integration for Gladys Assistant (illustration, not
-       the BYD logo). Built into cover.jpg by scripts/build-cover.sh. -->
+  <!-- Cover of the BYD integration for Gladys Assistant. An illustration
+       with the brand name in plain text: never the BYD logo, a trademark
+       of BYD Company Ltd. Built into cover.jpg by scripts/build-cover.sh. -->
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0e1a2b"/>
-      <stop offset="1" stop-color="#1b3150"/>
+    <radialGradient id="sky" cx="400" cy="330" r="480" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1d4f7e"/>
+      <stop offset="0.55" stop-color="#0f2742"/>
+      <stop offset="1" stop-color="#070f1c"/>
+    </radialGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#14304f"/>
+      <stop offset="1" stop-color="#060d18"/>
     </linearGradient>
-    <linearGradient id="car" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#e9eef5"/>
-      <stop offset="1" stop-color="#b9c4d3"/>
+    <radialGradient id="pool" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#4fb3ff" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#4fb3ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="horizon" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6cc4ff" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#9ad8ff" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#6cc4ff" stop-opacity="0"/>
     </linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.45" stop-color="#e4ebf3"/>
+      <stop offset="0.62" stop-color="#b7c5d6"/>
+      <stop offset="1" stop-color="#6f8299"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#ffffff" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2a4d74"/>
+      <stop offset="0.5" stop-color="#0f1f33"/>
+      <stop offset="1" stop-color="#1c3756"/>
+    </linearGradient>
+    <linearGradient id="glare" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.22"/>
+    </linearGradient>
+    <radialGradient id="rim" cx="0.4" cy="0.35" r="0.7">
+      <stop offset="0" stop-color="#f2f5f9"/>
+      <stop offset="0.6" stop-color="#9aa7b8"/>
+      <stop offset="1" stop-color="#4b5869"/>
+    </radialGradient>
     <linearGradient id="charge" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#2ecc71"/>
-      <stop offset="1" stop-color="#7ee2a8"/>
+      <stop offset="0" stop-color="#22c55e"/>
+      <stop offset="1" stop-color="#86efac"/>
     </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <filter id="soft" x="-20%" y="-50%" width="140%" height="200%">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+    <g id="wheel">
+      <circle r="45" fill="#0a0e15"/>
+      <circle r="41" fill="none" stroke="#1d2532" stroke-width="2"/>
+      <circle r="31" fill="url(#rim)"/>
+      <g fill="#1a2230">
+        <path d="M-4 -9 L-7 -28 Q0 -30 7 -28 L4 -9 Z"/>
+        <path d="M-4 -9 L-7 -28 Q0 -30 7 -28 L4 -9 Z" transform="rotate(72)"/>
+        <path d="M-4 -9 L-7 -28 Q0 -30 7 -28 L4 -9 Z" transform="rotate(144)"/>
+        <path d="M-4 -9 L-7 -28 Q0 -30 7 -28 L4 -9 Z" transform="rotate(216)"/>
+        <path d="M-4 -9 L-7 -28 Q0 -30 7 -28 L4 -9 Z" transform="rotate(288)"/>
+      </g>
+      <circle r="9" fill="#5d6b7d"/>
+      <circle r="4" fill="#c9d2de"/>
+    </g>
   </defs>
-  <rect width="800" height="534" fill="url(#bg)"/>
-  <g stroke="#22395a" stroke-width="1">
-    <path d="M0 89 H800 M0 178 H800 M0 267 H800 M0 356 H800 M0 445 H800"/>
-    <path d="M100 0 V534 M200 0 V534 M300 0 V534 M400 0 V534 M500 0 V534 M600 0 V534 M700 0 V534"/>
-  </g>
 
-  <text x="400" y="104" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif"
-        font-size="76" font-weight="bold" letter-spacing="14" fill="#ffffff">BYD</text>
-  <text x="400" y="150" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif"
-        font-size="26" fill="#9fb6d4">for Gladys Assistant</text>
-
-  <!-- the car -->
-  <ellipse cx="400" cy="408" rx="262" ry="16" fill="#0a1320" opacity="0.7"/>
-  <path d="M150 382 Q154 334 214 322 L292 268 Q322 248 368 246 L470 246 Q518 248 552 274 L610 322 Q652 330 650 382 Z" fill="url(#car)"/>
-  <path d="M306 280 Q326 262 368 261 L420 261 L420 316 L262 316 Z" fill="#26476f"/>
-  <path d="M436 261 L470 261 Q506 263 532 284 L566 316 L436 316 Z" fill="#26476f"/>
-  <rect x="148" y="366" width="504" height="14" rx="7" fill="#7f8ea3"/>
-  <circle cx="250" cy="390" r="44" fill="#141c28"/><circle cx="250" cy="390" r="20" fill="#8b98aa"/>
-  <circle cx="552" cy="390" r="44" fill="#141c28"/><circle cx="552" cy="390" r="20" fill="#8b98aa"/>
-  <rect x="612" y="334" width="32" height="10" rx="4" fill="#ffd166"/>
-  <rect x="154" y="336" width="24" height="9" rx="4" fill="#ef476f"/>
-
-  <!-- battery and charge -->
-  <g transform="translate(316 452)">
-    <rect width="160" height="48" rx="10" fill="none" stroke="#9fb6d4" stroke-width="5"/>
-    <rect x="160" y="15" width="10" height="18" rx="3" fill="#9fb6d4"/>
-    <rect x="9" y="9" width="104" height="30" rx="5" fill="url(#charge)"/>
-    <path d="M128 6 L114 26 H126 L118 42 L140 18 H128 Z" fill="#ffd166"/>
+  <!-- backdrop: studio glow, floor with perspective lines -->
+  <rect width="800" height="534" fill="url(#sky)"/>
+  <rect y="446" width="800" height="88" fill="url(#floor)"/>
+  <g stroke="#5aa9e6" stroke-opacity="0.13" stroke-width="1" fill="none">
+    <path d="M400 446 L-200 534 M400 446 L0 534 M400 446 L200 534 M400 446 L400 534
+             M400 446 L600 534 M400 446 L800 534 M400 446 L1000 534"/>
+    <path d="M0 462 H800 M0 484 H800 M0 512 H800"/>
   </g>
-  <!-- cloud -->
-  <g transform="translate(640 196)" fill="#4a7fbf">
-    <circle cx="0" cy="0" r="26"/><circle cx="30" cy="-10" r="32"/><circle cx="62" cy="4" r="22"/>
-    <rect x="-8" y="0" width="76" height="26" rx="12"/>
+  <ellipse cx="420" cy="452" rx="330" ry="34" fill="url(#pool)"/>
+  <rect x="40" y="445" width="720" height="2" fill="url(#horizon)"/>
+
+  <!-- title -->
+  <text x="400" y="98" text-anchor="middle" font-family="Inter, DejaVu Sans, Arial, sans-serif"
+        font-size="74" font-weight="800" letter-spacing="22" fill="#ffffff">BYD</text>
+  <rect x="370" y="118" width="60" height="3" rx="1.5" fill="#4fb3ff"/>
+  <text x="400" y="152" text-anchor="middle" font-family="Inter, DejaVu Sans, Arial, sans-serif"
+        font-size="23" font-weight="500" letter-spacing="1" fill="#a9c8e8">for Gladys Assistant</text>
+
+  <!-- the car: an electric fastback, facing right -->
+  <ellipse cx="425" cy="448" rx="290" ry="12" fill="#02060c" opacity="0.85" filter="url(#glow)"/>
+  <path d="M201 402 A54 54 0 0 1 309 402 Z M511 402 A54 54 0 0 1 619 402 Z" fill="#05090f"/>
+  <path d="M152 402 L146 372 Q144 344 166 334 L206 320 C250 300 300 262 352 250 Q410 238 470 244
+           C510 248 540 262 574 288 L612 306 Q676 316 694 334 Q706 350 700 378 L696 402
+           L619 402 A54 54 0 0 0 511 402 L309 402 A54 54 0 0 0 201 402 Z" fill="url(#body)"/>
+  <!-- sill, in the shade -->
+  <path d="M309 402 L511 402 L508 388 L312 390 Z" fill="#3b4b5f" opacity="0.8"/>
+  <!-- greenhouse -->
+  <path d="M244 316 C288 292 326 270 362 263 Q412 254 464 258 C498 261 524 273 550 294
+           Q554 300 546 301 L252 318 Q240 320 244 316 Z" fill="url(#glass)"/>
+  <path d="M300 300 C330 278 352 268 380 264 L420 262 L404 309 L292 313 Z" fill="url(#glare)"/>
+  <path d="M424 258 L436 258 L428 309 L415 309 Z" fill="#0b1626"/>
+  <!-- shoulder highlight, door seams, handles -->
+  <path d="M176 338 C300 326 520 322 676 326" fill="none" stroke="url(#sheen)" stroke-width="3"/>
+  <path d="M190 360 C320 352 520 348 690 350" fill="none" stroke="#8193a8" stroke-width="1.2" opacity="0.6"/>
+  <path d="M415 312 L410 396" fill="none" stroke="#7d8ea3" stroke-width="1.2" opacity="0.7"/>
+  <rect x="356" y="326" width="30" height="4" rx="2" fill="#8a9bb0"/>
+  <rect x="486" y="322" width="30" height="4" rx="2" fill="#8a9bb0"/>
+  <!-- light strips, with their glow -->
+  <path d="M640 318 Q676 322 692 334" fill="none" stroke="#bfe6ff" stroke-width="7" stroke-linecap="round" filter="url(#glow)"/>
+  <path d="M640 318 Q676 322 692 334" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+  <path d="M150 346 Q156 336 194 326" fill="none" stroke="#ff3b5c" stroke-width="7" stroke-linecap="round" filter="url(#glow)"/>
+  <path d="M150 346 Q156 336 194 326" fill="none" stroke="#ff7a90" stroke-width="3" stroke-linecap="round"/>
+  <!-- charging port, glowing green -->
+  <circle cx="226" cy="340" r="8" fill="#22c55e" filter="url(#glow)"/>
+  <circle cx="226" cy="340" r="4" fill="#bbf7d0"/>
+  <use href="#wheel" x="255" y="402"/>
+  <use href="#wheel" x="565" y="402"/>
+
+  <!-- what the integration reads: status chips, linked to the car -->
+  <g stroke="#7cc4ff" stroke-opacity="0.45" stroke-width="1.5" fill="none" stroke-dasharray="3 5">
+    <path d="M150 214 L150 280 L222 334"/>
+    <path d="M650 214 L650 260 L606 296"/>
   </g>
-  <path d="M676 236 Q640 270 600 284" fill="none" stroke="#4a7fbf" stroke-width="4" stroke-dasharray="8 8"/>
+  <g font-family="Inter, DejaVu Sans, Arial, sans-serif" font-size="20" font-weight="600" fill="#ffffff">
+    <!-- battery, charging -->
+    <g transform="translate(64 172)">
+      <rect width="172" height="44" rx="22" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.2"/>
+      <rect x="18" y="14" width="34" height="16" rx="4" fill="none" stroke="#ffffff" stroke-width="2"/>
+      <rect x="52" y="19" width="3" height="6" rx="1" fill="#ffffff"/>
+      <rect x="21" y="17" width="23" height="10" rx="2" fill="url(#charge)"/>
+      <text x="68" y="29">80 %</text>
+      <path d="M150 12 L140 24 H147 L143 33 L154 20 H147 Z" fill="#facc15"/>
+    </g>
+    <!-- climate -->
+    <g transform="translate(570 172)">
+      <rect width="160" height="44" rx="22" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.2"/>
+      <g transform="translate(34 22)" stroke="#7dd3fc" stroke-width="2.2" stroke-linecap="round" fill="none">
+        <path d="M0 -11 V11 M-9.5 -5.5 L9.5 5.5 M-9.5 5.5 L9.5 -5.5"/>
+        <path d="M-3 -9 L0 -6 L3 -9 M-3 9 L0 6 L3 9"/>
+      </g>
+      <text x="58" y="29">21 °C</text>
+    </g>
+    <!-- range -->
+    <g transform="translate(64 112)">
+      <rect width="148" height="44" rx="22" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.2"/>
+      <path d="M30 11 C22 11 18 17 18 22 C18 29 30 36 30 36 C30 36 42 29 42 22 C42 17 38 11 30 11 Z" fill="#4fb3ff"/>
+      <circle cx="30" cy="22" r="4" fill="#0f2742"/>
+      <text x="54" y="29">412 km</text>
+    </g>
+    <!-- locked -->
+    <g transform="translate(626 112)">
+      <rect width="104" height="44" rx="22" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.2"/>
+      <path d="M24 20 V16 A8 8 0 0 1 40 16 V20" fill="none" stroke="#ffffff" stroke-width="2.4"/>
+      <rect x="20" y="20" width="24" height="16" rx="4" fill="#ffffff"/>
+      <circle cx="32" cy="28" r="2.5" fill="#0f2742"/>
+      <path d="M58 22 L65 29 L80 14" fill="none" stroke="#4ade80" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
 </svg>

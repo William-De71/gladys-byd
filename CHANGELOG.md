@@ -5,6 +5,12 @@ follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions
 follow [Semantic Versioning](https://semver.org/). This file is generated at
 each release from the Conventional Commits: do not edit it by hand.
 
+## [0.1.1] - 2026-10-24
+
+### Security
+
+- **security:** build the image on Node.js 24.22.1 or later ([1a30bb4](https://github.com/William-De71/gladys-byd/commit/1a30bb4f0c69c1d20b43d0bd2b25c7ef4aa13732))
+
 ## [0.1.0] - 2026-10-16
 
 ### Added
@@ -17,4 +23,5 @@ each release from the Conventional Commits: do not edit it by hand.
 - One kept session (stored in /data), a pause after a refused sign-in, and a Diagnostic button writing the anonymized answers of BYD to the logs.
 - English, French, German and Spanish.
 
+[0.1.1]: https://github.com/William-De71/gladys-byd/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/William-De71/gladys-byd/releases/tag/v0.1.0

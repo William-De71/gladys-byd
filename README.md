@@ -5,7 +5,7 @@
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![Latest release](https://img.shields.io/github/v/release/William-De71/gladys-byd?sort=semver)](https://github.com/William-De71/gladys-byd/releases)
 [![CI](https://img.shields.io/github/actions/workflow/status/William-De71/gladys-byd/release.yml?branch=main&label=CI)](https://github.com/William-De71/gladys-byd/actions/workflows/release.yml)
-[![Gladys](https://img.shields.io/badge/Gladys-%E2%89%A5%205.1.1-2f6fb5)](https://gladysassistant.com)
+[![Gladys](https://img.shields.io/badge/Gladys-%E2%89%A5%205.3.0-2f6fb5)](https://gladysassistant.com)
 
 ![BYD for Gladys Assistant](cover.jpg)
 
@@ -98,7 +98,7 @@ Examples:
 
 ## Requirements
 
-- Gladys Assistant **5.1.1** or later (widgets and scenes): older instances cannot install the integration.
+- Gladys Assistant **5.3.0** or later (catalog keywords and countries of Gladys 5.3, widgets and scenes): older instances cannot install the integration.
 - A BYD car connected to the overseas **BYD** app, and the account of the app. A second account the car is shared with is advised: the app may sign your phone out when Gladys signs in with the same account.
 - For commands: the 6-digit remote control PIN set in the BYD app (by the account Gladys uses).
 

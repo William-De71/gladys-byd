@@ -8,7 +8,7 @@ BYD ne publie aucune API : l’intégration parle le protocole de l’app, d’a
 
 ## Prérequis
 
-- Gladys Assistant 5.1.1 ou plus récent.
+- Gladys Assistant 5.3.0 ou plus récent.
 - Une voiture BYD reliée à l’app BYD, et l’adresse e-mail et le mot de passe du compte de l’app.
 - Conseillé : un second compte BYD avec qui la voiture est partagée (le partage se fait depuis l’app). L’app peut déconnecter votre téléphone quand Gladys se connecte avec le même compte.
 - Pour les commandes : le **code PIN de commande** à 6 chiffres défini dans l’app BYD par le compte qu’utilise Gladys (un compte partagé définit le sien).

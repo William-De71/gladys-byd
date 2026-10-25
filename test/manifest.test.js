@@ -44,7 +44,7 @@ test('declares the cloud transport only, and the location of the houses', () => 
   for (const key of ['network_wake', 'containers', 'network_discovery', 'webhooks']) {
     assert.equal(manifest[key], undefined, key);
   }
-  assert.equal(manifest.gladys_version, '>=5.1.1');
+  assert.equal(manifest.gladys_version, '>=5.3.0');
   assert.deepEqual(manifest.categories, ['vehicles']);
   assert.doesNotMatch(source('../src/widgets.js'), /fields:/, 'no button form (5.2.0)');
 });
@@ -117,4 +117,20 @@ test('configuration: PIN digits only, country upper case, password kept as typed
   assert.equal(normalizeConfig({ password: ' p ' }).password, ' p ');
   assert.equal(normalizeConfig({ poll_interval: '1' }).pollInterval, 5);
   assert.equal(normalizeConfig({ climate_duration: '25' }).climateDuration, 25);
+});
+
+test('catalog fields of Gladys 5.3: search keywords and countries', () => {
+  assert.ok(Array.isArray(manifest.keywords), 'keywords is a list');
+  assert.ok(manifest.keywords.length >= 1 && manifest.keywords.length <= 10, '1 to 10 keywords');
+  for (const keyword of manifest.keywords) {
+    assert.ok(
+      keyword.trim().length >= 2 && keyword.trim().length <= 30,
+      `"${keyword}": 2 to 30 chars`,
+    );
+  }
+  const normalized = manifest.keywords.map((keyword) => keyword.trim().toLowerCase());
+  assert.equal(new Set(normalized).size, normalized.length, 'keywords are unique');
+  assert.ok(!normalized.includes(manifest.name.toLowerCase()), 'the name is already searched');
+  // Usable anywhere: no country restriction.
+  assert.equal(manifest.countries, undefined);
 });

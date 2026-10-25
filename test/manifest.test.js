@@ -45,7 +45,7 @@ test('declares the cloud transport only, and the location of the houses', () => 
     assert.equal(manifest[key], undefined, key);
   }
   assert.equal(manifest.gladys_version, '>=5.1.1');
-  assert.deepEqual(manifest.categories, ['energy', 'security']);
+  assert.deepEqual(manifest.categories, ['vehicles']);
   assert.doesNotMatch(source('../src/widgets.js'), /fields:/, 'no button form (5.2.0)');
 });
 
